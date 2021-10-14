@@ -171,16 +171,6 @@ button {
   transform: rotate(180deg);
 }
 
-/* ATTRIBUTION */
-.attribution {
-  font-size: 11px;
-  text-align: center;
-  color: rgb(139, 134, 134);
-}
-.attribution a {
-  color: hsl(0, 0%, 100%);
-}
-
 /* TABLET MEDIA QUERY */
 @media screen and (max-width: 1000px) {
   .card {
