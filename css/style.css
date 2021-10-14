@@ -1,80 +1,288 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="css/style.css">
+:root {
+  --very-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --soft-red: hsl(14, 88%, 65%);
+  --soft-violet: hsl(273, 75%, 66%);
+  --soft-blue: hsl(240, 73%, 65%);
+  --very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --dark-grayish-blue: hsl(240, 6%, 50%);
+  --divider: hsl(240, 5%, 91%);
+}
 
-  <title>Frontend Mentor | FAQ Accordion Card</title>
+/* GLOBAL */
 
-</head>
-<body>
-  <div class="wrapper">
-    <main class="card">
-      <div class="card-img">
-        <div class="wrapper-illustration">
-          <div class="illustration-woman-desktop">
-            <img src="images/illustration-woman-online-desktop.svg" aria-hidden="true" alt="woman online desktop">
-          </div>
-            <div class="illustration-box">
-              <img src="images/illustration-box-desktop.svg" aria-hidden="true" alt="">
-            </div>
-        </div>
-      </div>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-      <div class="bg-mobile">
-        <div class="card-img-mobile">
-          <img src="images/illustration-woman-online-mobile.svg" aria-hidden="true" alt="">
-        </div>
-        <img src="images/bg-pattern-mobile.svg" aria-hidden="true" alt="">
-      </div>
-      <div class="card-text">
-        <h1>FAQ</h1>
-  <!-- ACCORDION -->
-      <div class="accordion-text">
-        <div class="accordion">
-          <button type="button" class="accordion__button">How many team members can I invite?</button>
-            <div class="accordion__content">
-              <p>You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.</p>
-            </div>
-        </div>
-        <div class="accordion">
-          <button type="button" class="accordion__button">What is the maximum file upload size?</button>
-            <div class="accordion__content">
-              <p>No more than 2GB. All files in your account must fit your allotted storage space.</p>
-            </div>
-        </div>
-        <div class="accordion">
-          <button type="button" class="accordion__button"> How do I reset my password?</button>
-            <div class="accordion__content">
-              <p>Click “Forgot password” from the login page or “Change password” from your profile page.
-                A reset link will be emailed to you.
-              </p>
-            </div>
-        </div>
-        <div class="accordion">
-          <button type="button" class="accordion__button">Can I cancel my subscription?</button>
-            <div class="accordion__content">
-              <p>  Yes! Send us a message and we’ll process your request no questions asked.</p>
-            </div>
-        </div>
-        <div class="accordion">
-          <button type="button" class="accordion__button">Do you provide additional support?</button>
-            <div class="accordion__content">
-              <p>Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
-            </div>
-        </div>
-      </div>
-      </div>
-    </main>
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="https://instagram.com/kenreeb" target="blank">Ken Reibman</a>.
-    </div>
-  </div>
+html {
+  font-size: 0.75rem;
+  font-family: "Kumbh Sans", sans-serif;
+}
 
-  <script src="js/script.js"></script>
-</body>
-</html>
+body {
+  background: linear-gradient(var(--soft-violet), var(--soft-blue)) no-repeat;
+  padding: 4.5rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  color: var(--very-dark-grayish-blue);
+}
+
+p {
+  margin-bottom: 1.5rem;
+  color: var(--dark-grayish-blue);
+  width: 90%;
+}
+
+button {
+  color: var(--very-dark-grayish-blue);
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* CARD MAIN (ILLUSTRATION AND TEXT) */
+.card {
+  display: flex;
+  background-color: white;
+  border-radius: 1.5rem;
+  max-width: 70rem;
+  background-image: url(../images/bg-pattern-desktop.svg);
+  background-repeat: no-repeat;
+  background-position: -100% center;
+  background-size: 70%;
+  /*shadow*/
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+/* CARD IMAGE (ILLUSTRATION WOMAN) */
+.card-img {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  animation: revealDown 1s ease-out alternate;
+}
+
+.card-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 33.333rem;
+  transform: translateX(-15%);
+}
+
+.illustration-woman-desktop {
+  overflow: hidden;
+}
+
+.wrapper-illustration {
+  position: relative;
+}
+
+/* ILLUSTRATION BOX */
+.illustration-box {
+  position: absolute;
+  left: -5.5rem;
+  top: 7rem;
+  z-index: 10;
+  width: 191;
+  height: 184px;
+  animation: upAndDown--desktop 0.8s ease-in-out infinite alternate;
+}
+
+.illustration-box img {
+  display: block;
+  width: 100%;
+}
+
+/* CARD IMAGE MOBILE */
+.card-img-mobile {
+  display: none;
+}
+.card-img-mobile img {
+  display: none;
+}
+
+.bg-mobile {
+  display: none;
+}
+
+.bg-mobile img {
+  display: none;
+}
+/* CARD TEXT */
+.card-img,
+.card-text {
+  flex: 1;
+}
+
+/* ACCORDION */
+
+.accordion__content {
+  line-height: 1.4;
+  border-bottom: 1px var(--divider) solid;
+  overflow: hidden;
+  max-height: 0;
+}
+
+.accordion-text {
+  padding: 0 5rem 5rem 0;
+}
+
+.accordion__button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.25rem 1.25rem 1.25rem 0;
+  border: none;
+  outline-color: var(--soft-red);
+  cursor: pointer;
+  text-align: left;
+  background-color: white;
+}
+
+.accordion__button--active {
+  font-weight: bold;
+}
+
+.accordion__button::after {
+  content: url(../images/icon-arrow-down.svg);
+  display: block;
+  transition: transform 300ms ease-in-out;
+}
+
+.accordion__button--active::after {
+  font-weight: bold;
+  content: url(../images/icon-arrow-down.svg);
+  transform: rotate(180deg);
+}
+
+/* ATTRIBUTION */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  color: rgb(139, 134, 134);
+}
+.attribution a {
+  color: hsl(0, 0%, 100%);
+}
+
+/* TABLET MEDIA QUERY */
+@media screen and (max-width: 1000px) {
+  .card {
+    flex-direction: column;
+    background-image: none;
+    max-width: 60%;
+  }
+
+  /* DESKTOP ILLUSTRATIONS */
+  .illustration-box {
+    display: none;
+  }
+
+  .card-img {
+    display: none;
+  }
+
+  /* MOBILE ILLUSTRATION ( ILLUSTRATION-WOMAN ) */
+
+  .card-img-mobile {
+    display: initial;
+    position: absolute;
+    transform: translateX(-5%) translateY(-32%);
+  }
+
+  .card-img-mobile img {
+    display: block;
+  }
+
+  /* MOBILE ILLUSTRATION ( SHADOW ) */
+  .bg-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bg-mobile img {
+    display: block;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    color: var(--very-dark-grayish-blue);
+    text-align: center;
+  }
+
+  /* ACCORDION ( TABLET ) */
+  .accordion-text {
+    padding: 0 5rem 5rem 5rem;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* MOBILE MEDIA QUERY */
+@media screen and (max-width: 425px) {
+  body {
+    padding: 2rem;
+  }
+
+  .accordion-text {
+    padding: 0 2rem 4rem 2rem;
+  }
+
+  h1 {
+    margin-top: 2rem;
+    font-size: 3rem;
+  }
+
+  p {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  p {
+    width: 90%;
+  }
+
+  .accordion-text {
+    width: 100%;
+  }
+}
+
+@keyframes upAndDown--desktop {
+  0% {
+    transform: translateY(0.2rem);
+  }
+  100% {
+    transform: translateY(-0.8rem);
+  }
+}
+
+@keyframes revealDown {
+  0% {
+    opacity: 0;
+    top: 4rem;
+  }
+  100% {
+    opacity: 1;
+    top: 6rem;
+  }
+}
