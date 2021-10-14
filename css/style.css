@@ -186,7 +186,7 @@ button {
   .card {
     flex-direction: column;
     background-image: none;
-    max-width: 60%;
+    max-width: 600px;
   }
 
   /* DESKTOP ILLUSTRATIONS */
