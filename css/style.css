@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  background: linear-gradient(var(--soft-violet), var(--soft-blue)) no-repeat;
+  background: linear-gradient(var(--soft-violet), var(--soft-blue));
   padding: 4.5rem;
   display: flex;
   justify-content: center;
