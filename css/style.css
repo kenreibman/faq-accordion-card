@@ -26,6 +26,10 @@ html {
 body {
   background: linear-gradient(var(--soft-violet), var(--soft-blue)) no-repeat;
   padding: 4.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
 }
 
 h1 {
@@ -44,13 +48,6 @@ p {
 button {
   color: var(--very-dark-grayish-blue);
   font-family: "Kumbh Sans", sans-serif;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
 /* CARD MAIN (ILLUSTRATION AND TEXT) */
