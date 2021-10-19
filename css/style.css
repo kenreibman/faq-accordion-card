@@ -135,6 +135,7 @@ button {
   border-bottom: 1px var(--divider) solid;
   overflow: hidden;
   max-height: 0;
+  transition: all 0.2s;
 }
 
 .accordion-text {
